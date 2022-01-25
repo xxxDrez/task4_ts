@@ -4,47 +4,41 @@ abstract class Employee {
     abstract get_salary(): number; 
 }
 
-class Manager extends Employee {
+class Manager implements Employee {
 
     constructor(
         readonly first_name: string,
         readonly last_name: string,
         readonly salary: number
-    ){
-        super();     
-    }
+    ){ }
 
     public get_salary(): number {
         return this.salary - this.salary * 0.13;
     }
 }
 
-class Agent extends Employee {
+class Agent implements Employee {
     public amountEmployee: number = 0;
 
     constructor (
         readonly first_name: string,
         readonly last_name: string,
         readonly moneyPerEmployee: number
-    ){
-        super();
-    }
+    ){}
 
     public get_salary(): number {
         return this.amountEmployee * this.moneyPerEmployee - this.amountEmployee * this.moneyPerEmployee * 0.13;
     }
 }
 
-class Workman extends Employee {
+class Workman implements Employee {
     public amountHours: number = 0;
 
     constructor (
         readonly first_name: string,
         readonly last_name: string,
         readonly moneyPerHour: number
-    ){
-        super();
-    }
+    ){}
 
     public get_salary(): number {
         return this.moneyPerHour * this.amountHours - this.moneyPerHour * this.amountHours * 0.13;
